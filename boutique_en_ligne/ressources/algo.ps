@@ -1,0 +1,36 @@
+        ### Ajouter un produit au panier 
+
+Fonction ajouter_au_panier(product_id, quantity)
+    
+    Si panier dans session n'existe pas alors
+        Initialiser panier dans session comme tableau vide
+    Fin Si
+    
+    Si product_id existe déjà dans panier alors
+        Augmenter la quantité de product_id par quantity
+    Sinon
+        Ajouter product_id avec quantity au panier
+    Fin Si
+    Sauvegarder panier dans session
+Fin Fonction
+
+        ### Visualiser le contenu du panier 
+
+Fonction visualiser_panier()
+    Initialiser panier à session['panier']
+    Pour chaque produit dans panier
+        Afficher nom, prix unitaire, quantité, sous-total (prix unitaire * quantité)
+    Fin Pour
+    Afficher total global
+Fin Fonction
+
+        ### Calculer le total de la commande 
+
+Fonction calculer_total(panier)
+    Initialiser total à 0
+    Pour chaque produit dans panier
+        Calculer sous-total = produit.prix * produit.quantité
+        Ajouter sous-total à total
+    Fin Pour
+    Retourner total
+Fin Fonction
